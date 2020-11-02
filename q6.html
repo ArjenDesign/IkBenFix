@@ -4,209 +4,103 @@
 <meta charset="utf-8">
 <title>Resultaten</title>
 <link href="style.css" rel="stylesheet" type="text/css">
-	   
-	
 </head>
 
-<body>
-	
+<body>	
 <h1>Een korte analyse op basis van de antwoorden die je hebt ingevuld:</h1>
 	<h2>
-	<script type = "text/javascript">
-        
-				var AllAnswers = document.cookie;
-				var Question1Answer = 0;
-				var Question2Answer = 0;
-				var Question3Answer = 0;
-				var Question4Answer = 0;
-				var Question5Answer = 0;
-				var Question6Answer = 0;
-				var QuestionCounter = 0;
+		<script type = "text/javascript">
+		var Question1Answer = 0;
+		var Question2Answer = 0;
+		var Question3Answer = 0;
+		var Question4Answer = 0;
+		var Question5Answer = 0;
+		var Question6Answer = 0;
 		
-				var Question1Text = 0;
-				var Question2Text = 0;
-				var Question3Text = 0;
-				var Question4Text = 0;
-				var Question5Text = 0;
-				var Question6Text = 0;
+		var Question1Text = 0;
+		var Question2Text = 0;
+		var Question3Text = 0;
+		var Question4Text = 0;
+		var Question5Text = 0;
+		var Question6Text = 0;
 		
-				cookiearray = AllAnswers.split(';');
-		
-				for(var i=0; i<cookiearray.length; i++) 
-				{
-					QuestionCounter+=1;
-				    Question = cookiearray[i].split('=')[0];
-				    Answer = cookiearray[i].split('=')[1];
-					var QuestionB = parseInt(Question);	
-					var AnswerB = parseInt(Answer);	
-					
-					if(QuestionB==1){
-					Question1Answer=AnswerB;
-						
-						if(AnswerB==1){
-							Question1Text="Creatief";
-						}
-
-						if(AnswerB==2){
-							Question1Text="Beschouwend";
-						}
-						
-						if(AnswerB==3){
-							Question1Text="Positief";
-						}
-						
-						if(AnswerB==4){
-							Question1Text="Op gevoel";
-						}
-						
-						if(AnswerB==5){
-							Question1Text="Feitelijk";
-						}
-						
-						if(AnswerB==6){
-							Question1Text="Negatief";
-						}
-					
-						
-					}
-					
-					if(QuestionB==2){
-					Question2Answer=AnswerB;
-						
-						if(AnswerB==1){
-							Question2Text="Grapjas";
-						}
-
-						if(AnswerB==2){
-							Question2Text="Held";
-						}
-						
-						if(AnswerB==3){
-							Question2Text="Kind";
-						}
-						
-						if(AnswerB==4){
-							Question2Text="Koning";
-						}
-						
-						if(AnswerB==5){
-							Question2Text="Liefhebber";
-						}
-						
-						if(AnswerB==6){
-							Question2Text="Schepper";
-						}
-						
-						if(AnswerB==7){
-							Question2Text="Tovenaar";
-						}
-
-						if(AnswerB==8){
-							Question2Text="Verzorger";
-						}
-						
-						if(AnswerB==9){
-							Question2Text="Provocateur";
-						}
-						
-						if(AnswerB==10){
-							Question2Text="Wijze";
-						}
-						
-						if(AnswerB==11){
-							Question2Text="Alleman";
-						}
-						
-						if(AnswerB==12){
-							Question2Text="Avonturier";
-						}
-					
-					}
-					
-					if(QuestionB==3){
-					Question3Answer=AnswerB;
-						
-						if(AnswerB==1){
-							Question3Text="Ja";
-						}
-
-						if(AnswerB==2){
-							Question3Text="Nee";
-						}
-					
-					}
-					
-					if(QuestionB==4){
-					Question4Answer=AnswerB;
-						
-						if(AnswerB==1){
-							Question4Text="Warm Grasgroen";
-						}
-
-						if(AnswerB==2){
-							Question4Text="Helder Koningsblauw";
-						}
-						
-						if(AnswerB==3){
-							Question4Text="Stralend Goudgeel";
-						}
-						
-						if(AnswerB==4){
-							Question4Text="Vurig Oranje";
-						}
-					
-					}
-					
-					if(QuestionB==5){
-					Question5Answer=AnswerB;
-						
-						if(AnswerB==1){
-							Question5Text="Open, toegankelijk, eerlijk";
-						}
-
-						if(AnswerB==2){
-							Question5Text="Bij jezelf blijven, reflecteren";
-						}
-						
-						if(AnswerB==3){
-							Question5Text="Oordeelloos, empatisch";
-						}
-						
-						if(AnswerB==4){
-							Question5Text="Bewust van anderen";
-						}
-						
-						if(AnswerB==5){
-							Question5Text="Overgave, bescheiden, bereidwillig";
-						}
-						
-						if(AnswerB==6){
-							Question5Text="Nieuwe dingen proberen";
-						}
-						
-						if(AnswerB==7){
-							Question5Text="Leergierig, flexibel, geduldig";
-						}
-
-						if(AnswerB==8){
-							Question5Text="Efficiënt, gestructureerd, geördend";
-						}
-						
-						if(AnswerB==9){
-							Question5Text="Betrokken, verbindend";
-						}
-						
-						if(AnswerB==10){
-							Question5Text="Autonoom, zichtbaar zijn";
-						}
-														
-					}				
-						
-					if(QuestionCounter==5){
-						WriteResults();
-					}
-					
+		for(var i=1; i<=5; i++) 
+		{
+			var AnswerB = getCookie("ArjQ" + i.toString());	
+			
+			if(i==1){
+				Question1Answer=AnswerB;
+				switch(AnswerB) {
+					case "1": Question1Text="Creatief"; break;
+					case "2": Question1Text="Beschouwend"; break;
+					case "3": Question1Text="Positief"; break;
+					case "4": Question1Text="Op gevoel"; break;
+					case "5": Question1Text="Feitelijk"; break;
+					case "6": Question1Text="Negatief"; break;
+					default: Question1Text=""; break;
 				}
+			}
+			
+			if(i==2){
+				Question2Answer=AnswerB;
+				switch (AnswerB) {
+					case "1": Question2Text="Grapjas"; break;
+					case "2": Question2Text="Held"; break;
+					case "3": Question2Text="Kind"; break;
+					case "4": Question2Text="Koning"; break;
+					case "5": Question2Text="Liefhebber"; break;
+					case "6": Question2Text="Schepper"; break;
+					case "7": Question2Text="Tovenaar"; break;
+					case "8": Question2Text="Verzorger"; break;
+					case "9": Question2Text="Provocateur"; break;
+					case "10": Question2Text="Wijze"; break;
+					case "11": Question2Text="Alleman"; break;
+					case "12": Question2Text="Avonturier"; break;
+					default: Question2Text=""; break;
+				}
+			}
+			
+			if(i==3){
+				Question3Answer=AnswerB;
+				switch (AnswerB) {
+					case "1": Question3Text="Ja"; break;
+					case "2": Question3Text="Nee"; break;
+					default: Question3Text=""; break;
+				}
+			}
+			
+			if(i==4){
+				Question4Answer=AnswerB;
+				switch (AnswerB) {
+					case "1": Question4Text="Warm Grasgroen"; break;
+					case "2": Question4Text="Helder Koningsblauw"; break;
+					case "3": Question4Text="Stralend Goudgeel"; break;
+					case "4": Question4Text="Vurig Oranje"; break;
+					default: Question4Text=""; break;
+				}
+			}
+			
+			if(i==5){
+				Question5Answer=AnswerB;
+				switch (AnswerB) {
+					case "1": Question5Text="Open, toegankelijk, eerlijk"; break;
+					case "2": Question5Text="Bij jezelf blijven, reflecteren"; break;
+					case "3": Question5Text="Oordeelloos, empatisch"; break;
+					case "4": Question5Text="Bewust van anderen"; break;
+					case "5": Question5Text="Overgave, bescheiden, bereidwillig"; break;
+					case "6": Question5Text="Nieuwe dingen proberen"; break;
+					case "7": Question5Text="Leergierig, flexibel, geduldig"; break;
+					case "8": Question5Text="Efficiënt, gestructureerd, geördend"; break;
+					case "9": Question5Text="Betrokken, verbindend"; break;
+					case "10": Question5Text="Autonoom, zichtbaar zijn"; break;
+					default: Question5Text=""; break;
+				}								
+			}				
+				
+			if(i==5){
+				WriteResults();
+			}
+		}
 		
 			function WriteResults() {
 				
@@ -472,11 +366,24 @@
 						if(Question4Answer==4){
 						document.write ("Ook wil je graag controle hebben op alles en voelt je boos of agressief worden, als dat niet lukt. Wil je weten hoe je dit kunt veranderen? Doe dan de uitgebreidere versie van dit spel onderdeskundige begeleiding.");		
 						}
-					}
-										
+					}				
 				}
-
-				
+			}
+			
+			function getCookie(cname) {
+				var name = cname + "=";
+				var decodedCookie = decodeURIComponent(document.cookie);
+				var ca = decodedCookie.split(';');
+				for(var i = 0; i <ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
+					}
+				}
+				return "";
 			}
 			 
       	</script>   
